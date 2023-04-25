@@ -13,19 +13,40 @@
         crossorigin="anonymous"></script>
 </head>
 
+
+<script>  
+    function validateform(){  
+    var name=document.valform.name.value;  
+    var password=document.valform.password.value;  
+      
+    if (!/^[a-zA-Z\s]*$/.test(name)) {
+    var errMsg = "Only alphabets and whitespace are allowed.";
+    alert(errMsg);
+}
+    if (name==null || name==""){  
+      alert("Name can't be blank");  
+      return false;  
+    }else if(password.length<6){  
+      alert("Password must be at least 6 characters long.");  
+      return false;  
+      }  
+    }  
+    </script>  
+
+
 <body>
 
     <h1 class="bg-light text-center">Validator USP</h1>
 
     <div class="container w-50 mt-5">
-        <form class="justify-content-center">
+        <form class="justify-content-center" name="valform" method="post" onsubmit="return validateform()" >
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input id="name" type="text" name="name" class="form-control">
             </div>
             <div class="form-group mt-2">
                 <label for="egn">EGN</label>
-                <input id="egn" type="number" name="egn" class="form-control">
+                <input id="egn" type="number" maxlength="10" name="egn" class="form-control">
             </div>
             <div class="form-group mt-2">
                 <label for="password">Password</label>
