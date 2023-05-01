@@ -29,9 +29,9 @@
     if (name==null || name==""){  
       alert("Name can't be blank");  
       return false;  
-    }else if(password.length<6){  
-      alert("Password must be at least 6 characters long.");  
-      return false;  
+    }else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}/.test(password)) {
+    alert("Password must contain at least one lowercase letter, one uppercase letter, and one number, and be at least 8 characters long.");
+    return false;  
       }else if(egn.length!=10){
         alert("EGN must be 10 numbers long.");
         return false;
